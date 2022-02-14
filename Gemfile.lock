@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/kufu/activerecord-bitemporal.git
+  revision: 123e9225686580465c703dced048e61d2150c2a1
+  branch: master
+  specs:
+    activerecord-bitemporal (0.1.0)
+      activerecord (>= 5.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -214,6 +222,7 @@ PLATFORMS
   x86_64-darwin-18
 
 DEPENDENCIES
+  activerecord-bitemporal!
   capybara
   cssbundling-rails
   debug
