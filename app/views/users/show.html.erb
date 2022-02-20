@@ -1,10 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="bg-green-200 border-green-600 text-green-600 border-l-4 p-4 mb-8" role="alert">
+      <p class="font-bold">
+          Success
+      </p>
+      <p>
+         <%= notice %>
+      </p>
+  </div>
+<% end %>
 
-<%= render @user %>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+<div class="flex justify-around">
+  <div>
+    <%= render @user %>
+  </div>
+  <div class="px-8">
+    <%= render "form", user: @user %>
+  </div>
+</div>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+<div class="absolute left-0 p-4 overflow-x-scroll overflow-y-scroll max-width-100vw">
+  <h1 class="text-gray-200">Bitemporal data table</h2>
+  <%= render "bitemporal", bitemporal: @bitemporal %>
 </div>

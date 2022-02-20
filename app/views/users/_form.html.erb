@@ -11,22 +11,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-4 relative">
+    <%= form.label :name, class: "text-gray-200" %>
+    <%= form.text_field :name, class: "rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" %>
   </div>
 
-  <div>
-    <%= form.label :hobby, style: "display: block" %>
-    <%= form.text_field :hobby %>
+  <div class="mb-4 relative">
+    <%= form.label :avatar, class: "text-gray-200" %>
+    <%= form.text_field :avatar, class: "rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" %>
   </div>
 
-  <div>
-    <%= form.label :grade, style: "display: block" %>
-    <%= form.number_field :grade %>
+  <div class="mb-4 relative">
+    <%= form.label :profile, class: "text-gray-200" %>
+    <%= form.text_field :profile, class: "rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-4 relative">
+    <%= form.label :email, class: "text-gray-200" %>
+    <%= form.text_field :email, class: "rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" %>
+  </div>
+
+  <div class="mb-4 relative">
+    <%= form.label :twitter, class: "text-gray-200" %>
+    <%= form.text_field :twitter, class: "rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" %>
+  </div>
+
+  <div class="mb-4 relative">
+    <%= form.label :github, class: "text-gray-200" %>
+    <%= form.text_field :github, class: "rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" %>
+  </div>
+
+  <div class="mb-4 relative">
+    <%= form.submit "Update", class: "py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" %>
   </div>
 <% end %>

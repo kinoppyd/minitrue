@@ -61,6 +61,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      @bitemporal = User.find_by_sql(["SELECT * FROM users WHERE bitemporal_id = :bid ORDER BY created_at DESC, valid_to DESC", { bid: params[:id] }])
     end
 
     # Only allow a list of trusted parameters through.

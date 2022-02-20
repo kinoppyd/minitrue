@@ -1,0 +1,36 @@
+<table class="table-auto dark:text-gray-200">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">name</th>
+      <th class="px-4 py-2">avatar</th>
+      <th class="px-4 py-2">profile</th>
+      <th class="px-4 py-2">email</th>
+      <th class="px-4 py-2">twitter</th>
+      <th class="px-4 py-2">github</th>
+      <th class="px-4 py-2">valid_from</th>
+      <th class="px-4 py-2">valid_to</th>
+      <th class="px-4 py-2">transaction_from</th>
+      <th class="px-4 py-2">transaction_to</th>
+      <th class="px-4 py-2">created_at</th>
+      <th class="px-4 py-2">updated_at</th>
+    </tr>
+  </thead>
+  <tbody class="text-xs">
+  <% bitemporal.each do |btm| %>
+    <tr>
+      <td class="border px-2 py-2"><%= btm.name %></td>
+      <td class="border px-2 py-2"><img src="<%= btm.avatar %>"></td>
+      <td class="border px-2 py-2"><%= btm.profile %></td>
+      <td class="border px-2 py-2"><%= btm.email %></td>
+      <td class="border px-2 py-2"><%= btm.twitter %></td>
+      <td class="border px-2 py-2"><%= btm.github %></th>
+      <td class="border px-2 py-2"><%= btm.valid_from %></td>
+      <td class="border px-2 py-2"><%= btm.valid_to %></td>
+      <td class="border px-2 py-2"><%= btm.transaction_from %></td>
+      <td class="border px-2 py-2"><%= btm.transaction_to %></td>
+      <td class="border px-2 py-2"><%= btm.created_at %></td>
+      <td class="border px-2 py-2"><%= btm.updated_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
