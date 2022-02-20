@@ -1,10 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
-
-<div id="users" class="container flex flex-row flex-wrap"> 
+<div id="users" class="container flex flex-row flex-wrap gap-4"> 
   <% @users.each do |user| %>
-    <div class="px-2 py-4 relative">
+    <div class="relative">
       <%= render user %>
       <p class="absolute top-0 right-0 mt-6 mr-6">
         <%= link_to user do %>
@@ -15,6 +13,10 @@
       </p>
     </div>
   <% end %>
+  <div class="self-center">
+    <%= link_to new_user_path, class: "flex items-center p-4  transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Add new user
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New user", new_user_path %>
