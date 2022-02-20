@@ -1,4 +1,8 @@
-<table class="table-auto dark:text-gray-200">
+<div class="flex text-xs dark:text-gray-200">
+  <div class="p-2  bg-green-100 dark:bg-green-900 rounded-full shadow-md">ignore_valid_datetime</div>
+  <div class="ml-4 p-2 bg-red-100 dark:bg-red-900 rounded-full shadow-md">within_deleted</div>
+</div>
+<table class="table-auto dark:text-gray-200 border-separate">
   <thead>
     <tr>
       <th class="px-4 py-2">name</th>
@@ -16,14 +20,24 @@
     </tr>
   </thead>
   <tbody class="text-xs">
-  <% bitemporal.each do |btm| %>
-    <tr>
-      <td class="border px-2 py-2"><%= btm.name %></td>
-      <td class="border px-2 py-2"><img src="<%= btm.avatar %>"></td>
-      <td class="border px-2 py-2"><%= btm.profile %></td>
-      <td class="border px-2 py-2"><%= btm.email %></td>
-      <td class="border px-2 py-2"><%= btm.twitter %></td>
-      <td class="border px-2 py-2"><%= btm.github %></th>
+  <% bitemporal.each_with_index do |btm, i| %>
+    <% if i != 0 %>
+      <% ignore_datetime = bitemporal_ignore_valid_datetime.find { |d| d.id_in_database == btm.id_in_database } ? "bg-green-100 dark:bg-green-900" : nil %>
+      <% deleted = bitemporal_within_deleted.find { |d| d.id_in_database == btm.id_in_database } ? "bg-red-100 dark:bg-red-900" : nil %>
+    <% end%>
+
+    <% if i == 0 || ignore_datetime %>
+      <% prev_index = bitemporal_ignore_valid_datetime.find_index { |d| d.id_in_database == btm.id_in_database }&.+ 1 %>
+      <% prev = prev_index ? bitemporal_ignore_valid_datetime[prev_index] : nil %>
+      <% change_style = "border-8 border-blue-500"%>
+    <% end%>
+    <tr class="<%= deleted %> <%= ignore_datetime %>">
+      <td class="border px-2 py-2 <%= column_changed(btm, prev, :name) ? change_style : "" %>"><%= btm.name %></td>
+      <td class="border px-2 py-2 <%= column_changed(btm, prev, :avatar) ? change_style : "" %>"><img src="<%= btm.avatar %>"></td>
+      <td class="border px-2 py-2 <%= column_changed(btm, prev, :profile) ? change_style : "" %>"><%= btm.profile %></td>
+      <td class="border px-2 py-2 <%= column_changed(btm, prev, :email) ? change_style : "" %>"><%= btm.email %></td>
+      <td class="border px-2 py-2 <%= column_changed(btm, prev, :twitter) ? change_style : "" %>"><%= btm.twitter %></td>
+      <td class="border px-2 py-2 <%= column_changed(btm, prev, :github) ? change_style : "" %>"><%= btm.github %></th>
       <td class="border px-2 py-2"><%= btm.valid_from %></td>
       <td class="border px-2 py-2"><%= btm.valid_to %></td>
       <td class="border px-2 py-2"><%= btm.transaction_from %></td>

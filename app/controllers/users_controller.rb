@@ -62,6 +62,8 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
       @bitemporal = User.find_by_sql(["SELECT * FROM users WHERE bitemporal_id = :bid ORDER BY created_at DESC, valid_to DESC", { bid: params[:id] }])
+      @bitemporal_ignore_valid_datetime = User.ignore_valid_datetime.where(bitemporal_id:params[:id] ).order(valid_from: :desc)
+      @bitemporal_within_deleted = User.within_deleted.where(bitemporal_id:params[:id] ).order(valid_from: :desc)[1..-1]
     end
 
     # Only allow a list of trusted parameters through.

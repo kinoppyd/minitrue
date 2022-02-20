@@ -21,5 +21,5 @@
 
 <div class="absolute left-0 p-4 overflow-x-scroll overflow-y-scroll max-width-100vw">
   <h1 class="text-gray-200">Bitemporal data table</h2>
-  <%= render "bitemporal", bitemporal: @bitemporal %>
+  <%= render "bitemporal", bitemporal: @bitemporal, bitemporal_within_deleted: @bitemporal_within_deleted, bitemporal_ignore_valid_datetime: @bitemporal_ignore_valid_datetime %>
 </div>
